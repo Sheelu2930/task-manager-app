@@ -17,24 +17,44 @@ export default function Register() {
     };
 
     return (
-        <div className="h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-100">
-            <div className="bg-white p-6 rounded-xl shadow-lg w-80">
-                <h2 className="text-xl font-bold mb-4 text-center">Register</h2>
+        <div className="register-container">
+            <div className="register-card">
 
-                <input className="input" placeholder="Name"
-                    onChange={(e) => setForm({ ...form, name: e.target.value })} />
+                <h2 className="register-title">Create your account</h2>
 
-                <input className="input" placeholder="Email"
-                    onChange={(e) => setForm({ ...form, email: e.target.value })} />
+                <input
+                    className="register-input"
+                    placeholder="Name"
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
 
-                <input className="input" type="password" placeholder="Password"
-                    onChange={(e) => setForm({ ...form, password: e.target.value })} />
+                <input
+                    className="register-input"
+                    placeholder="Email"
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                />
 
-                <button className="btn" onClick={handleSubmit}>Register</button>
+                <input
+                    className="register-input"
+                    type="password"
+                    placeholder="Password"
+                    onChange={(e) => setForm({ ...form, password: e.target.value })}
+                />
 
-                <p className="text-sm mt-3 text-center">
-                    Already have account? <span className="text-blue-500 cursor-pointer" onClick={() => navigate("/")}>Login</span>
+                <button className="register-btn" onClick={handleSubmit}>
+                    Register
+                </button>
+
+                <p className="register-text">
+                    Already have account?{" "}
+                    <span
+                        className="register-link"
+                        onClick={() => navigate("/")}
+                    >
+                        Login
+                    </span>
                 </p>
+
             </div>
         </div>
     );

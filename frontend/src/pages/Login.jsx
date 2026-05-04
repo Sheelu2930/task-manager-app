@@ -8,26 +8,6 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-
-    // const handleLogin = async () => {
-    //     try {
-    //         const res = await API.post("/login", {
-    //             email: email,
-    //             password: password,
-    //         });
-
-    //         // token save
-    //         localStorage.setItem("token", res.data.token);
-
-    //         // redirect
-    //         navigate("/dashboard");
-    //     } catch (err) {
-    //         alert("Login failed");
-    //         console.log(err);
-    //     }
-    // };
-
-
     const handleLogin = async () => {
         try {
             console.log("API URL:", API.defaults.baseURL);
@@ -46,33 +26,34 @@ export default function Login() {
     };
 
     return (
-        <div className="h-screen flex justify-center items-center bg-gray-100">
-            <div className="bg-white p-6 rounded shadow w-80">
-                <h2 className="text-lg font-bold mb-4">Login</h2>
+        <div className="login-container">
+            <div className="login-card">
+                <h2 className="login-title">Login to your account</h2>
 
-                {/* Email */}
                 <input
                     type="email"
                     placeholder="Email"
-                    className="border w-full p-2 mb-3"
+                    className="login-input"
                     onChange={(e) => setEmail(e.target.value)}
                 />
 
-                {/* Password */}
                 <input
                     type="password"
                     placeholder="Password"
-                    className="border w-full p-2 mb-3"
+                    className="login-input"
                     onChange={(e) => setPassword(e.target.value)}
                 />
 
-                {/* Button */}
-                <button
-                    onClick={handleLogin}
-                    className="bg-blue-500 text-white w-full p-2 rounded"
-                >
+                <button onClick={handleLogin} className="login-btn">
                     Login
                 </button>
+
+                <p className="login-text">
+                    Don’t have an account?{" "}
+                    <span onClick={() => navigate("/register")} className="login-link">
+                        Register
+                    </span>
+                </p>
             </div>
         </div>
     );
