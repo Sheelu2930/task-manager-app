@@ -7,13 +7,11 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-    // GET TASKS
     public function index(Request $request)
     {
         return $request->user()->tasks()->latest()->paginate(5);
     }
 
-    // CREATE TASK
     public function store(Request $request)
     {
         $request->validate([
@@ -28,7 +26,6 @@ class TaskController extends Controller
         ]);
     }
 
-    // UPDATE (DONE / PENDING)
     public function update(Request $request, $id)
     {
         $task = $request->user()->tasks()->findOrFail($id);
@@ -40,7 +37,6 @@ class TaskController extends Controller
         return $task;
     }
 
-    // DELETE
     public function destroy(Request $request, $id)
     {
         $task = $request->user()->tasks()->findOrFail($id);

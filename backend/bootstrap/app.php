@@ -13,7 +13,6 @@ return Application::configure(basePath: dirname(__DIR__))
     )
 
     ->withMiddleware(function (Middleware $middleware): void {
-        // 👈 empty रहने दो
     })
 
     ->withExceptions(function (Exceptions $exceptions): void {
